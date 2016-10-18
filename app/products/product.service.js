@@ -32,13 +32,12 @@ System.register(['angular2/core', 'angular2/http', 'rxjs/Observable'], function(
                 ProductService.prototype.getProducts = function () {
                     return this._http.get(this._productUrl)
                         .map(function (response) { return response.json(); })
-                        .do(function (data) { return console.log('All: ' + JSON.stringify(data)); })
                         .catch(this.handleError);
                 };
                 ProductService.prototype.getProduct = function (id) {
                     return this.getProducts().map(function (products) {
                         return products.find(function (product) { return product.productId == id; });
-                    });
+                    }).do(function (data) { return console.log('Single: ' + JSON.stringify(data)); });
                 };
                 ProductService.prototype.handleError = function (error) {
                     console.log(error);

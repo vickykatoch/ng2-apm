@@ -2,7 +2,9 @@
 {
     "files.exclude": {
         "**/.git": true,
-        "**/.DS_Store": true
+        "**/.DS_Store": true,
+        "**/*.js" : true,
+        "**/*.js.map" : true,
     }, 
     "files.autoSave": "afterDelay",
     "typescript.check.workspaceVersion": false
